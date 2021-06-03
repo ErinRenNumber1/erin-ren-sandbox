@@ -7,4 +7,6 @@ jobs:
       - run: echo "🎉 starting to install CLI"
       - run: brew tap shopify/shopify
       - run: brew install shopify-cli
+      - run: mkdir -p ~/.config/shopify; (echo '[analytics]'; echo 'enabled = true') >> ~/.config/shopify/config
+        name: suppress shopify config prompt -- we're unattended
       - run: shopify version
